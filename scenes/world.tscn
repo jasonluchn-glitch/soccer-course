@@ -33,4 +33,4 @@ position = Vector2(187, 103)
 control_scheme = 2
 
 [node name="Player3" parent="." instance=ExtResource("4_k0juu")]
-position = Vector2(103, 154)
+position = Vector2(129, 117)
