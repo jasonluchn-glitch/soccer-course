@@ -28,9 +28,30 @@ centered = false
 position = Vector2(149, 121)
 control_scheme = 1
 
+[node name="Label" type="Label" parent="Player"]
+offset_left = -4.0
+offset_top = -49.0
+offset_right = 36.0
+offset_bottom = -26.0
+text = "1"
+
 [node name="Player2" parent="." instance=ExtResource("4_k0juu")]
 position = Vector2(187, 103)
 control_scheme = 2
 
+[node name="Label" type="Label" parent="Player2"]
+offset_left = -4.0
+offset_top = -49.0
+offset_right = 36.0
+offset_bottom = -26.0
+text = "2"
+
 [node name="Player3" parent="." instance=ExtResource("4_k0juu")]
 position = Vector2(129, 117)
+
+[node name="Label" type="Label" parent="Player3"]
+offset_left = -4.0
+offset_top = -49.0
+offset_right = 36.0
+offset_bottom = -26.0
+text = "3"

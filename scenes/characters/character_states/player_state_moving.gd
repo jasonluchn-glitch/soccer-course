@@ -15,4 +15,4 @@ func handle_human_movement():
 	player.velocity = direction * player.speed
 	
 	if player.velocity != Vector2.ZERO and KeyUtils.is_action_pressed(player.control_scheme,KeyUtils.Action.SHOOT):
-		state_transition_requested.emit(Player.State.Tackling)
+		state_transition_requested.emit(Player.State.TACKLING)
