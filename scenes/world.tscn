@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bxbd8iwlldhej"]
+[gd_scene load_steps=6 format=3 uid="uid://bxbd8iwlldhej"]
 
 [ext_resource type="Texture2D" uid="uid://7258cbx2etws" path="res://assets/art/backgrounds/pitch-background.png" id="1_4wyf3"]
 [ext_resource type="Texture2D" uid="uid://c2hel2fybwxof" path="res://assets/art/backgrounds/pitch-pattern.png" id="2_k0juu"]
 [ext_resource type="Texture2D" uid="uid://insq4e7igb05" path="res://assets/art/backgrounds/pitch-lines.png" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bb0oj8qjdvjim" path="res://scenes/characters/player.tscn" id="4_k0juu"]
+[ext_resource type="PackedScene" uid="uid://beqcigudha7p3" path="res://scenes/ball/ball.tscn" id="5_71j4m"]
 
 [node name="World" type="Node2D"]
 
@@ -24,34 +25,40 @@ modulate = Color(0.941176, 0.941176, 0.941176, 1)
 texture = ExtResource("3_71j4m")
 centered = false
 
-[node name="Player" parent="." instance=ExtResource("4_k0juu")]
+[node name="ActorsContainer" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Player" parent="ActorsContainer" instance=ExtResource("4_k0juu")]
 position = Vector2(149, 121)
 control_scheme = 1
 
-[node name="Label" type="Label" parent="Player"]
+[node name="Label" type="Label" parent="ActorsContainer/Player"]
 offset_left = -4.0
 offset_top = -49.0
 offset_right = 36.0
 offset_bottom = -26.0
 text = "1"
 
-[node name="Player2" parent="." instance=ExtResource("4_k0juu")]
+[node name="Player2" parent="ActorsContainer" instance=ExtResource("4_k0juu")]
 position = Vector2(187, 103)
 control_scheme = 2
 
-[node name="Label" type="Label" parent="Player2"]
+[node name="Label" type="Label" parent="ActorsContainer/Player2"]
 offset_left = -4.0
 offset_top = -49.0
 offset_right = 36.0
 offset_bottom = -26.0
 text = "2"
 
-[node name="Player3" parent="." instance=ExtResource("4_k0juu")]
+[node name="Player3" parent="ActorsContainer" instance=ExtResource("4_k0juu")]
 position = Vector2(129, 117)
 
-[node name="Label" type="Label" parent="Player3"]
+[node name="Label" type="Label" parent="ActorsContainer/Player3"]
 offset_left = -4.0
 offset_top = -49.0
 offset_right = 36.0
 offset_bottom = -26.0
 text = "3"
+
+[node name="Ball" parent="ActorsContainer" instance=ExtResource("5_71j4m")]
+position = Vector2(186, 126)
