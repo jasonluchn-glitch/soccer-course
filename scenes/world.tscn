@@ -1,10 +1,14 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxbd8iwlldhej"]
+[gd_scene load_steps=8 format=3 uid="uid://bxbd8iwlldhej"]
 
 [ext_resource type="Texture2D" uid="uid://7258cbx2etws" path="res://assets/art/backgrounds/pitch-background.png" id="1_4wyf3"]
 [ext_resource type="Texture2D" uid="uid://c2hel2fybwxof" path="res://assets/art/backgrounds/pitch-pattern.png" id="2_k0juu"]
 [ext_resource type="Texture2D" uid="uid://insq4e7igb05" path="res://assets/art/backgrounds/pitch-lines.png" id="3_71j4m"]
 [ext_resource type="PackedScene" uid="uid://bb0oj8qjdvjim" path="res://scenes/characters/player.tscn" id="4_k0juu"]
 [ext_resource type="PackedScene" uid="uid://beqcigudha7p3" path="res://scenes/ball/ball.tscn" id="5_71j4m"]
+[ext_resource type="Script" uid="uid://bypffq2x8ao4r" path="res://scenes/key_hint.gd" id="6_qfnet"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_71j4m"]
+font_size = 12
 
 [node name="World" type="Node2D"]
 
@@ -62,3 +66,33 @@ text = "3"
 
 [node name="Ball" parent="ActorsContainer" instance=ExtResource("5_71j4m")]
 position = Vector2(186, 126)
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+offset_right = 121.0
+offset_bottom = 180.0
+script = ExtResource("6_qfnet")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.0
+offset_top = -88.5
+offset_right = 55.0
+offset_bottom = 88.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "玩家1
+移动	:	↑ ↓ ← →
+传球	:	1(小键盘)
+踢球/铲球: 2(小键盘)
+
+玩家2
+移动	:	↑ ↓ ← →
+传球	:	F
+踢球/铲球: G"
+label_settings = SubResource("LabelSettings_71j4m")
