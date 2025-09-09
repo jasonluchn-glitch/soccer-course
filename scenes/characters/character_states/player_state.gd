@@ -4,16 +4,18 @@ extends Node
 signal state_transition_requested(new_state: Player.State, state_data: PlayerStateData)
 
 var animation_player : AnimationPlayer = null
+var ball : Ball = null
 var player : Player = null
 var state_data : PlayerStateData = PlayerStateData.new()
 
-func setup(context_player: Player, context_state_data: PlayerStateData, context_animation_player) -> void:
+func setup(context_player: Player, context_state_data: PlayerStateData, context_animation_player, context_ball: Ball) -> void:
 	player = context_player
 	animation_player = context_animation_player
 	state_data = context_state_data
+	ball = context_ball
 
-func transition_state(new_state: Player.State, state_data: PlayerStateData = PlayerStateData.new()) -> void:
-	state_transition_requested.emit(new_state, state_data)
+func transition_state(new_state: Player.State, data: PlayerStateData = PlayerStateData.new()) -> void:
+	state_transition_requested.emit(new_state, data)
 
 func on_animation_complete() -> void:
 	pass # override me!

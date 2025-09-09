@@ -29,7 +29,7 @@ func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.ne
 		current_state.queue_free()
 	
 	current_state = state_factory.get_fresh_state(state)
-	current_state.setup(self, state_data, animation_player)
+	current_state.setup(self, state_data, animation_player, ball)
 	current_state.state_transition_requested.connect(switch_state.bind())
 	current_state.name = "PlayerStateMachine:" + str(state)
 	call_deferred("add_child", current_state)

@@ -29,12 +29,3 @@ func _process(delta: float) -> void:
 	
 	ball.position = carrier.position + Vector2(vx + carrier.heading.x * OFFSET_FROM_PLAYER.x, OFFSET_FROM_PLAYER.y)
 	
-func forwards_backwards_movement() -> Vector2:
-	var current_x := 0.0
-	var range = 100
-	if current_x < range:
-		current_x += 10
-	elif current_x > -range:
-		current_x -= 10
-	
-	return Vector2(current_x, 0)

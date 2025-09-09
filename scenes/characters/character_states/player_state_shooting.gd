@@ -15,4 +15,4 @@ func on_animation_complete() -> void:
 
 	
 func shoot_ball() -> void:
-	player.ball.shoot(state_data.shot_power	 )
+	ball.shoot(state_data.shot_direction * state_data.shot_power)

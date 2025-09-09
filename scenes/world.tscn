@@ -34,8 +34,8 @@ y_sort_enabled = true
 
 [node name="Player" parent="ActorsContainer" node_paths=PackedStringArray("ball") instance=ExtResource("4_k0juu")]
 position = Vector2(149, 121)
-control_scheme = 1
 ball = NodePath("../Ball")
+control_scheme = 1
 
 [node name="Label" type="Label" parent="ActorsContainer/Player"]
 offset_left = -4.0
@@ -47,8 +47,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Player2" parent="ActorsContainer" node_paths=PackedStringArray("ball") instance=ExtResource("4_k0juu")]
 position = Vector2(187, 103)
-control_scheme = 2
 ball = NodePath("../Ball")
+control_scheme = 2
 
 [node name="Label" type="Label" parent="ActorsContainer/Player2"]
 offset_left = -4.0
@@ -61,6 +61,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Player3" parent="ActorsContainer" node_paths=PackedStringArray("ball") instance=ExtResource("4_k0juu")]
 position = Vector2(129, 117)
 ball = NodePath("../Ball")
+control_scheme = 0
 
 [node name="Label" type="Label" parent="ActorsContainer/Player3"]
 offset_left = -4.0
