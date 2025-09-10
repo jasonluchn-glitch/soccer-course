@@ -4,13 +4,14 @@ extends PlayerState
 const DURATION_MAX_BONUS := 1000.0
 const EASE_REWARD_FACTOR := 2.0
 
-var time_start_shot := Time.get_ticks_msec()
 var shot_direction := Vector2.ZERO
+var time_start_shot := Time.get_ticks_msec()
 
 func _enter_tree() -> void:
 	animation_player.play("prep_kick")
 	player.velocity = Vector2.ZERO
 	time_start_shot = Time.get_ticks_msec()
+	shot_direction = player.heading
 
 func _process(delta: float) -> void:
 	
