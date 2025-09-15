@@ -1,7 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bb0oj8qjdvjim"]
+[gd_scene load_steps=14 format=3 uid="uid://bb0oj8qjdvjim"]
 
 [ext_resource type="Texture2D" uid="uid://efqcqrjvx155" path="res://assets/art/characters/soccer-player.png" id="1_rp718"]
 [ext_resource type="Script" uid="uid://c6mj52l2273pj" path="res://scenes/characters/player.gd" id="1_yewv4"]
+[ext_resource type="Texture2D" uid="uid://dipp0jsbtauq7" path="res://assets/art/props/1p.png" id="3_dyp2m"]
+[ext_resource type="Texture2D" uid="uid://r0sycthjkh28" path="res://assets/art/characters/player-shadow.png" id="4_atpat"]
 
 [sub_resource type="Animation" id="Animation_76oj4"]
 length = 0.001
@@ -156,7 +158,6 @@ height = 18.0
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 script = ExtResource("1_yewv4")
-control_scheme = null
 power = 70.0
 speed = 80.0
 
@@ -167,6 +168,13 @@ centered = false
 offset = Vector2(-16, -32)
 hframes = 6
 vframes = 13
+
+[node name="ControlSprite" type="Sprite2D" parent="PlayerSprite"]
+unique_name_in_owner = true
+position = Vector2(0, -35)
+texture = ExtResource("3_dyp2m")
+centered = false
+offset = Vector2(-7, -6)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -188,3 +196,8 @@ monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TeammateDetectionArea"]
 polygon = PackedVector2Array(0, -40, 280, -150, 330, -110, 330, 100, 280, 150, 0, 40)
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+texture = ExtResource("4_atpat")
+centered = false
+offset = Vector2(-8, -15)
