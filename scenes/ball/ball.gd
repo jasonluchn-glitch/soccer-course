@@ -1,6 +1,8 @@
 class_name Ball
 extends AnimatableBody2D
 
+const BOUNCINESS := 0.8
+
 enum State {CARRIED, FREEFORM, SHOT}
 
 @export var friction_air : float
@@ -21,7 +23,7 @@ var velocity := Vector2.ZERO
 func _ready() -> void:
 	switch_state(State.FREEFORM)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	ball_sprite.position = Vector2.UP * height
 
 func switch_state(state: State) -> void:
@@ -46,3 +48,6 @@ func pass_to(destination: Vector2) -> void:
 	velocity = intensity * direction
 	carrier = null
 	switch_state(Ball.State.FREEFORM)
+
+func stop() -> void:
+	velocity = Vector2.ZERO
