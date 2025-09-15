@@ -61,7 +61,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Player3" parent="ActorsContainer" node_paths=PackedStringArray("ball") instance=ExtResource("4_k0juu")]
 position = Vector2(129, 117)
 ball = NodePath("../Ball")
-control_scheme = null
 
 [node name="Label" type="Label" parent="ActorsContainer/Player3"]
 offset_left = -4.0
