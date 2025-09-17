@@ -8,7 +8,7 @@ const CONTROL_SCHEME_MAP : Dictionary = {
 }
 
 enum ControlScheme{ CPU, P1, P2}
-enum State {MOVING, TACKLING, RECOVERING, PREPPING_SHOT, SHOOTING, PASSING}
+enum State {MOVING, TACKLING, RECOVERING, PREPPING_SHOT, SHOOTING, PASSING, HEADER, VOLLEY_KICK, BICYCLE_KICK}
 
 @export var ball: Ball
 @export var control_scheme: ControlScheme
@@ -16,6 +16,7 @@ enum State {MOVING, TACKLING, RECOVERING, PREPPING_SHOT, SHOOTING, PASSING}
 @export var speed : float
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var ball_detection_area: Area2D = %BallDetectionArea
 @onready var control_sprite: Sprite2D = %ControlSprite
 @onready var player_sprite: Sprite2D = %PlayerSprite
 @onready var teammate_detection: Area2D = %TeammateDetectionArea
@@ -39,7 +40,7 @@ func switch_state(state: State, state_data: PlayerStateData = PlayerStateData.ne
 		current_state.queue_free()
 	
 	current_state = state_factory.get_fresh_state(state)
-	current_state.setup(self, state_data, animation_player, ball, teammate_detection)
+	current_state.setup(self, state_data, animation_player, ball, teammate_detection, ball_detection_area)
 	current_state.state_transition_requested.connect(switch_state.bind())
 	current_state.name = "PlayerStateMachine:" + str(state)
 	call_deferred("add_child", current_state)

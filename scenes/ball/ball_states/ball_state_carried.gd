@@ -27,5 +27,6 @@ func _process(delta: float) -> void:
 	else:
 		animation_player.play("idle")
 	
+	process_gravity(delta,0.5)
 	ball.position = carrier.position + Vector2(vx + carrier.heading.x * OFFSET_FROM_PLAYER.x, OFFSET_FROM_PLAYER.y)
 	
