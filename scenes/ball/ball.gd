@@ -57,6 +57,3 @@ func stop() -> void:
 
 func can_air_interact() -> bool:
 	return current_state != null and current_state.can_air_interact()
-
-func is_freeform() -> bool:
-	return current_state != null and current_state is BallStateFreeform
