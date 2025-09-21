@@ -22,7 +22,10 @@ func handle_human_movement():
 		elif KeyUtils.is_action_pressed(player.control_scheme, KeyUtils.Action.SHOOT):
 			transition_state(Player.State.PREPPING_SHOT)
 	elif ball.can_air_interact() and KeyUtils.is_action_pressed(player.control_scheme, KeyUtils.Action.SHOOT):
-		if player.velocity = Vector2.ZERO
+		if player.velocity == Vector2.ZERO:
+			pass
+		else:
+			transition_state(Player.State.HEADER)
 	
 	
 	#if player.velocity != Vector2.ZERO and KeyUtils.is_action_pressed(player.control_scheme,KeyUtils.Action.SHOOT):
