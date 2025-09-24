@@ -11,9 +11,7 @@ func on_animation_complete() -> void:
 		ball.pass_to(ball.position + player.heading * player.speed)
 	else:
 		ball.pass_to(pass_target.position + pass_target.velocity)
-	#print(pass_target)
-	#var target := Vector2(10,10)
-	#ball.pass_to(target)
+
 	transition_state(Player.State.MOVING)
 
 func find_teammate_in_view() -> Player:

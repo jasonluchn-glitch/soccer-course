@@ -6,8 +6,6 @@ const DISTANCE_HIGH_PASS := 130
 
 enum State {CARRIED, FREEFORM, SHOT}
 
-@export var air_connect_min_height : float
-@export var air_connect_max_height : float
 @export var friction_air : float
 @export var friction_ground : float
 
@@ -18,7 +16,8 @@ enum State {CARRIED, FREEFORM, SHOT}
 
 var carrier: Player = null
 var current_state : BallState = null
-var height := 0.0
+var height := 5
+
 var height_velocity = 0.0
 var state_factory = BallStateFactory.new()
 var velocity := Vector2.ZERO
@@ -48,9 +47,10 @@ func pass_to(destination: Vector2) -> void:
 	var direction := position.direction_to(destination)
 	var distance := position.distance_to(destination)
 	var intensity := sqrt(2 * distance * friction_ground)
+	
 	velocity = intensity * direction
 	if distance > DISTANCE_HIGH_PASS:
-		height_velocity = BallState.GRAVITY * distance / (1.8 * intensity)
+		height_velocity = BallState.GRAVITY * distance / (1.5 * intensity)
 	carrier = null
 	switch_state(Ball.State.FREEFORM)
 
@@ -60,5 +60,5 @@ func stop() -> void:
 func can_air_interact() -> bool:
 	return current_state != null and current_state.can_air_interact()
 
-func can_air_connect() -> bool:
+func can_air_connect(air_connect_min_height: float, air_connect_max_height: float) -> bool:
 	return height >= air_connect_min_height and height <= air_connect_max_height

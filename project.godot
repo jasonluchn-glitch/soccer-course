@@ -13,7 +13,8 @@ config_version=5
 config/name="Soccer Course"
 run/main_scene="uid://bxbd8iwlldhej"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://dv113qx26vv0l"
+config/icon="uid://dv113qx26vv0l"
 
 [autoload]
 
